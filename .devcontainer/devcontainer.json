@@ -10,7 +10,8 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "neo4j-extensions.neo4j-for-vscode"
+        "neo4j-extensions.neo4j-for-vscode",
+        "ms-toolsai.jupyter"
       ],
       "settings": {
         "python.defaultInterpreterPath": "${containerWorkspaceFolder}/.venv/bin/python",

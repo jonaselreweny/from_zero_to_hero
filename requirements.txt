@@ -1,3 +1,4 @@
 fastmcp
 neo4j-rust-ext
 python-dotenv
+neo4j_viz
