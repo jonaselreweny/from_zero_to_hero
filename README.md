@@ -1,6 +1,6 @@
 # From Zero to Hero
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jonaselreweny/hr_workshop)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jonaselreweny/from_zero_to_hero)
 
 Neo4j workshop for a 2-hour hands-on session in GitHub Codespaces. Participants learn the property graph model, write Cypher against an HR graph, use vector indexes for semantic retrieval, and finish by exposing the graph through a FastMCP server.
 
