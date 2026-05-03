@@ -15,8 +15,8 @@ Neo4j workshop for a 2-hour hands-on session in GitHub Codespaces. Participants 
 ## Tech Stack
 
 - Neo4j Aura Free
-- GitHub Codespaces via `.devcontainer`
-- Python 3.11
+- GitHub Codespaces
+- Python
 - Neo4j Python Driver with Rust extension support
 - FastMCP
 - Neo4j for VS Code extension
@@ -31,9 +31,8 @@ Before the session, participants should have:
 
 1. A GitHub account with Codespaces access.
 2. A Neo4j Aura Free database.
-3. An OpenAI API key if they want to extend the workshop beyond the precomputed embeddings path.
 
-Aura Free is the recommended default for the workshop. Local Neo4j works too, but all instructions below assume Aura first.
+Aura Free is the recommended default for the workshop.
 
 ## Quick Start
 

@@ -1,5 +1,4 @@
-cypherStatements
-":begin
+:begin
 CREATE VECTOR INDEX FOR (n:Person) ON (n.embedding);
 CREATE CONSTRAINT constraint_63dbe7c8 FOR (node:Person) REQUIRE (node.id) IS NODE KEY;
 CREATE CONSTRAINT constraint_691347c1 FOR (node:Thing) REQUIRE (node.name) IS NODE KEY;
@@ -276,4 +275,3 @@ MATCH (start:Person{id: row.start.id})
 MATCH (end:Thing{name: row.end.name})
 CREATE (start)-[r:BUILT]->(end) SET r += row.properties;
 :commit
-"

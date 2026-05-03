@@ -4,3 +4,5 @@ __pycache__/
 *.pyc
 *.egg-info/
 .DS_Store
+neo4j_indexes.json
+neo4j_model.json
