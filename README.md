@@ -40,21 +40,21 @@ Aura Free is the recommended default for the workshop.
 
 1. Open the repository in Codespaces using the badge above.
 2. Wait for the devcontainer to finish installing dependencies.
-3. Copy `example.env` to `.env`.
-4. Fill in `NEO4J_URI`, `NEO4J_USERNAME`, and `NEO4J_PASSWORD` with your Aura credentials.
+3. Copy `.env.example` to `.env`.
+4. Fill in `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, and `NEO4J_DATABASE` with your Aura credentials.
 5. Run `python load_data.py` to create the schema and load the workshop data.
 
 ### Option B: Local Machine
 
 1. Create a virtual environment.
 2. Install dependencies with `pip install -e .`.
-3. Copy `example.env` to `.env` and fill in your credentials.
+3. Copy `.env.example` to `.env` and fill in your credentials, including `NEO4J_DATABASE`.
 4. Run `python load_data.py`.
 
 ## Safety Notes
 
 - Do not commit `.env`.
-- Keep `example.env` as the only version-controlled environment template.
+- Keep `.env.example` as the only version-controlled environment template.
 - If you ever expose a real key or password, rotate it before sharing the repo.
 
 ## Workshop Agenda
@@ -107,7 +107,7 @@ The server exposes:
 ## Recommended Commands
 
 ```bash
-cp example.env .env
+cp .env.example .env
 python load_data.py
 python -m workshop.queries overview
 python -m workshop.queries similar --person-id person-001 --limit 5
@@ -122,7 +122,7 @@ python -m workshop.mcp_server
 ├── .github/prompts/
 ├── docs/
 ├── src/workshop/
-├── example.env
+├── .env.example
 ├── load_data.py
 ├── neo4j_indexes.json
 ├── neo4j_model.json
@@ -138,12 +138,13 @@ python -m workshop.mcp_server
 - Verify that Aura credentials are copied exactly.
 - Use the full `neo4j+s://` or `bolt+ssc://` URI provided by Aura.
 - Confirm that `.env` contains `NEO4J_USERNAME`, not `NEO4J_USER`.
+- Confirm that `.env` includes `NEO4J_DATABASE` and that it matches your Aura database name.
 
 ### Data Load Fails
 
 - Ensure your database is empty or drop the existing graph before re-running the seed.
 - Confirm that your Aura instance supports vector indexes.
-- Re-run `python load_data.py` after checking the `.env` values.
+- Re-run `python load_data.py` after checking the `.env` values, especially `NEO4J_DATABASE`.
 
 ### MCP Server Cannot Query
 

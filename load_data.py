@@ -31,14 +31,17 @@ def load_graph() -> None:
     uri = os.getenv("NEO4J_URI")
     user = os.getenv("NEO4J_USERNAME")
     password = os.getenv("NEO4J_PASSWORD")
+    database = os.getenv("NEO4J_DATABASE")
 
-    if not uri or not user or not password:
-        raise ValueError("Missing NEO4J_URI, NEO4J_USERNAME, or NEO4J_PASSWORD in environment.")
+    if not uri or not user or not password or not database:
+        raise ValueError(
+            "Missing NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD, or NEO4J_DATABASE in environment."
+        )
 
     queries = _read_seed_statements(SEED_PATH)
 
     with GraphDatabase.driver(uri, auth=(user, password)) as driver:
-        with driver.session() as session:
+        with driver.session(database=database) as session:
             for query in queries:
                 session.run(query)
 
