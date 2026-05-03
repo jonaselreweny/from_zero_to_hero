@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "from-zero-to-hero-workshop"
+version = "0.1.0"
+description = "Neo4j From Zero to Hero workshop assets"
+requires-python = ">=3.11"
+dependencies = [
+  "fastmcp",
+  "neo4j-rust-ext",
+  "python-dotenv",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": 2,
+    "name": "constraint_63dbe7c8",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "RANGE",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "Person"
+    ],
+    "properties": [
+      "id"
+    ],
+    "indexProvider": "range-1.0",
+    "owningConstraint": "constraint_63dbe7c8",
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 12,
+      "second": 58,
+      "nanosecond": 677000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 603
+  },
+  {
+    "id": 7,
+    "name": "constraint_691347c1",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "RANGE",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "Thing"
+    ],
+    "properties": [
+      "name"
+    ],
+    "indexProvider": "range-1.0",
+    "owningConstraint": "constraint_691347c1",
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 12,
+      "second": 58,
+      "nanosecond": 677000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 561
+  },
+  {
+    "id": 9,
+    "name": "constraint_c43b0eba",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "RANGE",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "Domain"
+    ],
+    "properties": [
+      "name"
+    ],
+    "indexProvider": "range-1.0",
+    "owningConstraint": "constraint_c43b0eba",
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 12,
+      "second": 58,
+      "nanosecond": 678000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 302
+  },
+  {
+    "id": 5,
+    "name": "constraint_dea7bdbc",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "RANGE",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "Skill"
+    ],
+    "properties": [
+      "name"
+    ],
+    "indexProvider": "range-1.0",
+    "owningConstraint": "constraint_dea7bdbc",
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 8,
+      "second": 40,
+      "nanosecond": 544000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 259
+  },
+  {
+    "id": 11,
+    "name": "constraint_f6c3386a",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "RANGE",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "WorkType"
+    ],
+    "properties": [
+      "name"
+    ],
+    "indexProvider": "range-1.0",
+    "owningConstraint": "constraint_f6c3386a",
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 12,
+      "second": 58,
+      "nanosecond": 678000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 300
+  },
+  {
+    "id": 1,
+    "name": "index_1b9dcc97",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "LOOKUP",
+    "entityType": "RELATIONSHIP",
+    "labelsOrTypes": null,
+    "properties": null,
+    "indexProvider": "token-lookup-1.0",
+    "owningConstraint": null,
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 18,
+      "second": 54,
+      "nanosecond": 921000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 1
+  },
+  {
+    "id": 0,
+    "name": "index_460996c0",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "LOOKUP",
+    "entityType": "NODE",
+    "labelsOrTypes": null,
+    "properties": null,
+    "indexProvider": "token-lookup-1.0",
+    "owningConstraint": null,
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 14,
+      "second": 3,
+      "nanosecond": 481000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 8
+  },
+  {
+    "id": 4,
+    "name": "text_embeddings",
+    "state": "ONLINE",
+    "populationPercent": 100.0,
+    "type": "VECTOR",
+    "entityType": "NODE",
+    "labelsOrTypes": [
+      "Person"
+    ],
+    "properties": [
+      "embedding"
+    ],
+    "indexProvider": "vector-3.0",
+    "owningConstraint": null,
+    "lastRead": {
+      "year": 2026,
+      "month": 5,
+      "day": 3,
+      "hour": 9,
+      "minute": 4,
+      "second": 14,
+      "nanosecond": 872000000,
+      "timeZoneOffsetSeconds": 0,
+      "timeZoneId": null
+    },
+    "readCount": 5
+  }
+]
