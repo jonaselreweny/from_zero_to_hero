@@ -1,12 +1,17 @@
 // Module 2: Querying the Graph with Cypher
 
+/* There is a Neo4j extension installed in this environment. Before proceeding with this module, connect
+to your Aura Free instance by first clicking the Neo4j logo on the left pane and add new connection.
+Make sure to choose the database which isn't named 'system' to initiate the connection. */
+
 // This is how we comment a line in Cypher.
 
 /* For multi-line comments,
 we can use this syntax. */
 
 /* To visualize the schema of our graph, we can use the `CALL db.schema.visualization()` procedure.
-In VS Code, you can run a query by selecting it and pressing `cmd + ^ + enter` (or `ctrl + shift + enter` on Windows). */
+In VS Code with the Neo4j extension, you can run a query by selecting it and pressing `cmd + ^ + enter` 
+(or `ctrl + shift + enter` on Windows). */
 CALL db.schema.visualization();
 
 /* Let's start with a simple query to get all persons in the database. 
