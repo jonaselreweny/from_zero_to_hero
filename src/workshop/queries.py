@@ -6,7 +6,7 @@ import json
 from workshop.db import run_read_query
 
 
-VECTOR_INDEX_NAME = "text_embeddings"
+VECTOR_INDEX_NAME = "person_embedding"
 CONTRIBUTION_TYPES = "BUILT|LED|MANAGED|SHIPPED|PUBLISHED|WON|OPTIMIZED"
 
 
