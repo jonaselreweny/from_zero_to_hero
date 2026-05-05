@@ -4,3 +4,4 @@ python-dotenv
 neo4j_viz
 pandas
 markdown
+openai

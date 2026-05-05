@@ -57,11 +57,18 @@ MATCH (p:Person)-[:KNOWS]->(s:Skill {name: "Machine Learning"})
 RETURN s.name AS skill, collect(p.name) AS persons, count(p) AS count
 LIMIT 25;
 
+/* Using parameters is a good practice. This means developers do not have to resort to string building 
+to create a query. Additionally, parameters make caching of execution plans much easier for Cypher, 
+thus leading to faster query execution times. 
+
+Try creating a parameter in the Neo4j VS Code extension with the name `skill` and value '"Machine Learning"' 
+If all goes well, the following query should return a node with the label Skill and name property with
+the value 'Machine Learning' */
+MATCH (s:Skill{name: $skill})
+RETURN s
+
 // We can return the results in various formats and order them. For example, in JSON format.
 MATCH (s:Skill)
 RETURN s {.name, persons: [(s)<-[:KNOWS]-(p:Person) | p.name]} AS skill_info
 ORDER BY s.name
 LIMIT 25;
-
-
-
