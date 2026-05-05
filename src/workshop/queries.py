@@ -5,29 +5,22 @@ import json
 
 from workshop.db import run_read_query
 
-
-VECTOR_INDEX_NAME = "person_embedding"
-CONTRIBUTION_TYPES = "BUILT|LED|MANAGED|SHIPPED|PUBLISHED|WON|OPTIMIZED"
-
-
 def overview(limit: int = 10) -> list[dict[str, object]]:
-    query = f"""
+    query = """//cypher
     MATCH (person:Person)
-    OPTIONAL MATCH (person)-[:KNOWS]->(skill:Skill)
-    OPTIONAL MATCH (person)-[:{CONTRIBUTION_TYPES}]->(thing:Thing)-[:IN]->(domain:Domain)
-    RETURN {{
+    RETURN {
       person_id: person.id,
       display_name: coalesce(person.name, person.id),
-      skills: collect(DISTINCT skill.name),
-      domains: collect(DISTINCT domain.name)
-    }} AS summary
+      skills: COLLECT { MATCH (node)-[:KNOWS]->(s:Skill) RETURN DISTINCT s.name },
+      domains: COLLECT {MATCH (node)-[:BUILT|LED|MANAGED|SHIPPED|PUBLISHED|WON|OPTIMIZED]->(:Thing)-[:IN]->(d:Domain) RETURN DISTINCT d.name} 
+    } AS summary
     LIMIT $limit
     """
     return run_read_query(query, {"limit": limit})
 
 
 def people_by_skill(skill_name: str, limit: int = 10) -> list[dict[str, object]]:
-    query = """
+    query = """//cypher
     MATCH (person:Person)-[:KNOWS]->(:Skill {name: $skill_name})
     RETURN person.id AS person_id, coalesce(person.name, person.id) AS display_name
     ORDER BY display_name
@@ -37,20 +30,21 @@ def people_by_skill(skill_name: str, limit: int = 10) -> list[dict[str, object]]
 
 
 def similar_people(person_id: str, limit: int = 5) -> list[dict[str, object]]:
-    query = f"""
-    MATCH (source:Person {{id: $person_id}})
-    CALL db.index.vector.queryNodes('{VECTOR_INDEX_NAME}', $limit, source.embedding)
-    YIELD node, score
+    query = """//cypher
+    MATCH (source:Person {id: $person_id})
+    MATCH (node:Person)
+    SEARCH node IN (
+      VECTOR INDEX person_embedding
+      FOR source.embedding
+      LIMIT $limit) SCORE AS score
     WHERE node.id <> source.id
-    OPTIONAL MATCH (node)-[:KNOWS]->(skill:Skill)
-    OPTIONAL MATCH (node)-[:{CONTRIBUTION_TYPES}]->(thing:Thing)-[:IN]->(domain:Domain)
-    RETURN {{
+    RETURN {
       person_id: node.id,
       display_name: coalesce(node.name, node.id),
       score: score,
-      skills: collect(DISTINCT skill.name),
-      domains: collect(DISTINCT domain.name)
-    }} AS similar_person
+      skills: COLLECT { MATCH (node)-[:KNOWS]->(s:Skill) RETURN DISTINCT s.name },
+      domains: COLLECT {MATCH (node)-[:BUILT|LED|MANAGED|SHIPPED|PUBLISHED|WON|OPTIMIZED]->(:Thing)-[:IN]->(d:Domain) RETURN DISTINCT d.name} 
+    } AS similar_person
     ORDER BY similar_person.score DESC
     """
     return run_read_query(query, {"person_id": person_id, "limit": limit})
