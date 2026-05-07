@@ -31,6 +31,7 @@ def people_by_skill(skill_name: str, limit: int = 10) -> list[dict[str, object]]
 
 def similar_people(person_id: str, limit: int = 5) -> list[dict[str, object]]:
     query = """//cypher
+    CYPHER 25
     MATCH (source:Person {id: $person_id})
     MATCH (node:Person)
     SEARCH node IN (
