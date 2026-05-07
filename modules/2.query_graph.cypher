@@ -65,7 +65,7 @@ Try creating a parameter in the Neo4j VS Code extension with the name `skill` an
 If all goes well, the following query should return a node with the label Skill and name property with
 the value 'Machine Learning' */
 MATCH (s:Skill{name: $skill})
-RETURN s
+RETURN s;
 
 // We can return the results in various formats and order them. For example, in JSON format.
 MATCH (s:Skill)
